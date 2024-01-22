@@ -1,0 +1,18 @@
+////////////////////////////////
+Day 1:
+//Brainstorm
+Import the memory game with a twist.
+Classic image based point an click.
+The Game of Nim(easiest version to implement).
+Number Code puzzle?
+Hangman new Thematic.
+https://en.wikipedia.org/wiki/Nim
+
+////////////////////////////////
+
+////////////////////////////////
+Day 2:
+
+
+
+////////////////////////////////

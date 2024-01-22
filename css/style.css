@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-image: url(../img/login\ background.jpg);;
+    background-size: 100% ;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: gray;
+    opacity: 0.5;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    color: white;
+    
+}
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+    background-color: gray;
+    opacity: 0.5;
+}
