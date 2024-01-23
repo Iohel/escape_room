@@ -17,6 +17,14 @@ header{
     background-color: gray;
     opacity: 0.5;
 }
+button{
+    margin: 10px;
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+}
 main{
     display: flex;
     justify-content: center;
@@ -24,7 +32,7 @@ main{
     flex-direction: column;
     position: relative;
     color: white;
-    
+    margin-top: 100px;
 }
 footer{
     position: fixed;
