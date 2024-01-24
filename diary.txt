@@ -7,12 +7,16 @@ The Game of Nim(easiest version to implement).
 Number Code puzzle?
 Hangman new Thematic.
 https://en.wikipedia.org/wiki/Nim
-
 ////////////////////////////////
 
 ////////////////////////////////
 Day 2:
 Basic visual elements and navigation implemented.
+////////////////////////////////
+
+////////////////////////////////
+Day 3:
+Login and register js being done i guess still need of clear it up.
 
 
 ////////////////////////////////
