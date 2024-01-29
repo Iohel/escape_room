@@ -8,7 +8,6 @@ function register(){
     console.log(username.value);
     console.log(password1.value);
     console.log(password2.value);
-    console.log("test");
     if(localStorage.getItem(email.value)){
         email.value = "";
         username.value = "";

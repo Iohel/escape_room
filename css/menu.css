@@ -12,7 +12,7 @@ main{
     align-items: center;
     flex-wrap: wrap;
 }
-div{
+button{
     border: 5px solid black;
     background-color: white;
 }

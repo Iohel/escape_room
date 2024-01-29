@@ -16,7 +16,13 @@ Basic visual elements and navigation implemented.
 
 ////////////////////////////////
 Day 3:
-Login and register js being done i guess still need of clear it up.
+Login and register js being done i guess still need to clear it up.
+////////////////////////////////
 
+////////////////////////////////
+Day 4:
+Menu sistems done with kickback to login page
+
+TODO: finish profile system.
 
 ////////////////////////////////

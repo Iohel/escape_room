@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="/css/register.css">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
+    <header>
+        <button class="btnheader" id="home">Home</button>
+        <button class="btnheader" id="username">Username</button>
+        <button class="btnheader" id="logout">Logout</button>
+    </header>
     <main>
-        <h1>Register</h1>
-        <form action="./menu.html">
+        <form action="">
             <div>
                 <label for="">Email</label>
                 <input id="email" type="text">
             </div>
             <div>
                 <label for="">Username</label>
-                <input id="username" type="text" maxlength="10">
+                <input id="usernameForm" type="text" maxlength="10">
             </div>
             <div>
                 <label for="">Password</label>
@@ -30,7 +34,8 @@
                 <input id="register" type="button" value="Login">
             </div>
         </form>
-        <script src="../js/user_register.js"></script>
     </main>
+    <script src="../js/header.js"></script>
+    <script src="../js/profile.js"></script>
 </body>
 </html>

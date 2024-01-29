@@ -12,6 +12,7 @@ function login() {
             console.log("login");
             item.login = 1;
             localStorage.setItem(email.value,JSON.stringify(item));
+            location.href = "/html/menu.html";
         }else{
             email.value = "";
             password.value = "";
