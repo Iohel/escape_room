@@ -6,10 +6,8 @@ let item = "";
 window.onload = function(){
     for (let i = 0; i < localStorage.length; i++) {
         
-        console.log(key);
         if(item.login !== 1){
             key = localStorage.key(i);
-            console.log(item);
             item = JSON.parse(localStorage.getItem(key));
             
         }
@@ -28,7 +26,7 @@ window.onload = function(){
         })
         logout.addEventListener("click",()=>{
             item.login = 0;
-            localStorage.removeItem(key);
+            /* localStorage.removeItem(key); */
             localStorage.setItem(key,JSON.stringify(item));
             location.href = "";
         })
