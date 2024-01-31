@@ -10,13 +10,17 @@ const palabra = document.getElementById('palabra');
 const showParaula = document.querySelector('.paraula');
 
 //
-let temaProva = ['test','trial','you','reddit'];
-let random = Math.random()*(temaProva.length-1);
-let paraula = temaProva[random.toFixed()].toUpperCase(); 
+
+let paraula;
 let paraulaAmagada = "";
 let errors = 0;
+let score = 0;
 let arrayTheme;
 let theme;
+let jump = 0;
+errors = 0;
+contador.innerText = '7';
+    
 //Cronometro
 let elCrono;
 let elCountdown;
@@ -40,12 +44,9 @@ function prepararParaula(e) {
         showParaula.innerText = "";
         for (let i = 0; i < paraula.length; i++) {
             console.log(paraula.charAt(i));
-            if (paraula.charAt(i) !== " ") {
-                console.log(yes);
-                showParaula.innerText += '-' ;   
-            } else{
-                showParaula.innerText += space;
-            }
+            
+            showParaula.innerText += '-' ;   
+            
         }
         paraulaAmagada = showParaula.innerText;
         console.log(paraulaAmagada);
@@ -146,11 +147,10 @@ function adivinarLletra(e) {
     showParaula.innerText = paraulaAmagada;
     return counter;
 }
-function endGame(final,error){
+function endGame(final){
     stop();
     document.getElementById('status').innerText = final;
-    document.getElementById('palabra').innerText = "The word was: " + paraula;
-    document.getElementById('errores').innerText = "You had " + error + " mistakes";
+    document.getElementById('palabra').innerText = "Final score: " + score;
     const envoltorio = document.getElementsByClassName('envoltorio-popup');
     laHora2.innerText = laHora.innerText;
     contenidor.style.display = 'none';
@@ -185,9 +185,7 @@ function endGame(final,error){
 function startGame(e){
     
     prepararParaula(e);
-    errors = 0;
-    contador.innerText = '7';
-    let jump = 0;
+    
     contenidor.addEventListener('click', (e) => {
         if(jump === 0){
             start()
@@ -197,11 +195,11 @@ function startGame(e){
         if (e.target.classList.contains('lletra')) {
             if(paraulaAmagada != paraula && errors != 7) {              
                 if(adivinarLletra(e.target.innerText)>0){
-                    e.target.classList.toggle('correct');
+                    e.target.classList.add('correct');
                     reiniciarCooldown();
                 }
                 else{
-                    e.target.classList.toggle('error');
+                    e.target.classList.add('error');
                     errors++;
                     contador.innerText = (7-errors);
                     error.innerText = errors;
@@ -211,10 +209,20 @@ function startGame(e){
             }
         }
         if(paraulaAmagada === paraula){
-            endGame("You win" , errors);
-            stopCooldown();                 
+            /* endGame("You win" , errors);
+            stopCooldown();     */
+            let lletres = document.querySelectorAll(".lletra");
+            console.log(lletres);
+            lletres.forEach(e => {
+                e.classList.remove("correct");
+                e.classList.remove("error");
+            });
+            
+            score = score + paraula*100;
+            startGame(theme);
+
         }else if(errors === 7){
-            endGame('You lost.',errors);
+            endGame('Thanks for playing.');
             stopCooldown();
         }
     });
@@ -313,12 +321,12 @@ function getThemeData(key) {
     
 }
 if(document.title == "Ahorcado"){
-    theme = localStorage.getItem("theme");
+    theme = "City Names";
     console.log(theme);
     startGame(theme);
-    retry.addEventListener('click',(e)=>{
+    /* retry.addEventListener('click',(e)=>{
         startGame(theme);
-    });
+    }); */
 
 }else{
     let button = document.querySelectorAll("input[type = button]");
@@ -333,7 +341,13 @@ if(document.title == "Ahorcado"){
     });
 }
 
+//To change-
+/*
+    Marathon Mode:
+    Keep prompting words until mistakes total 7
+    keeps a score based on length of words
 
+*/
 
 
 
