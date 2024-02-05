@@ -89,37 +89,45 @@ function stopCooldown(){
     clearInterval(elCountdown);
 }
 function crono(){
-
+    
     let horas = mifecha.getHours();
     let minutos = mifecha.getMinutes();
     let segundos = mifecha.getSeconds();
 
-    segundos += 1;
-
-    if(segundos == 60){
-        segundos = 0;
-        minutos += 1;
+    if(minutos === 0 && segundos === 0){
+        endGame("Thank you for playing.");
+    }else{
+        if(segundos == 0){
+            segundos = 59;
+            minutos -= 1;
+            
+            mifecha.setMinutes(minutos);
+        }else{
+            segundos -= 1;
+        }
         
-        mifecha.setMinutes(minutos);
+        mifecha.setSeconds(segundos);
+    
+        if (horas < 10) {horas = "0" + horas;}
+        if (minutos < 10) {minutos = "0" + minutos;}
+        if (segundos < 10) {segundos = "0" + segundos;}
+    
+        laHora.innerHTML = horas + ":" + minutos + ":" + segundos;
     }
 
-    mifecha.setSeconds(segundos);
+    
 
-    if (horas < 10) {horas = "0" + horas;}
-    if (minutos < 10) {minutos = "0" + minutos;}
-    if (segundos < 10) {segundos = "0" + segundos;}
-
-    laHora.innerHTML = horas + ":" + minutos + ":" + segundos;
-
-
+    
 }
 function reiniciarCrono(){
     mifecha.setHours(0,0,10,0);
 
 //inicializa el texto de laHora
-    laHora.innerHTML = "00:00:00";
+    laHora.innerHTML = "00:03:00";
 }
 function start(){
+    mifecha.setHours(0,3,0,0);
+    laHora.innerHTML = "00:03:00";
     elCrono = setInterval(crono, 1000);
 }
 function stop(){
@@ -149,6 +157,9 @@ function adivinarLletra(e) {
 }
 function endGame(final){
     stop();
+    
+    score = score-errors*100;
+    
     document.getElementById('status').innerText = final;
     document.getElementById('palabra').innerText = "Final score: " + score;
     const envoltorio = document.getElementsByClassName('envoltorio-popup');
@@ -157,77 +168,68 @@ function endGame(final){
     envoltorio[0].style.display = 'block';
 
     //Local Storage Saving
-    let finalScore = [];
-    
-    let record = localStorage.getItem(paraula);
+    let finalScore;
+    let record = localStorage.getItem("Hangman");
     record = JSON.parse(record);
     
     if(record != null){
         
-        console.log('test');
-        if(record[0]>errors){
-            finalScore.push(errors);
-        }else{
-            finalScore.push(record[0]);
-        }
-        if(record[1]>mifecha.getSeconds()){
-            finalScore.push(mifecha.getSeconds());
-        }else{
-            finalScore.push(record[1]);
-        }
-        localStorage.setItem(paraula,JSON.stringify(finalScore));
+        record.push(["item.username",score]);
+        localStorage.setItem("Hangman",JSON.stringify(record));
     }else{
-        finalScore = [errors,mifecha.getSeconds()]
-        localStorage.setItem(paraula,JSON.stringify(finalScore));
+        finalScore = [["item.username",score]];
+        localStorage.setItem("Hangman",JSON.stringify(finalScore));
     }
     
 }
 function startGame(e){
     
     prepararParaula(e);
-    
-    contenidor.addEventListener('click', (e) => {
-        if(jump === 0){
-            start()
-            startCooldown();
-            jump++;  
-        }
-        if (e.target.classList.contains('lletra')) {
-            if(paraulaAmagada != paraula && errors != 7) {              
-                if(adivinarLletra(e.target.innerText)>0){
-                    e.target.classList.add('correct');
-                    reiniciarCooldown();
-                }
-                else{
-                    e.target.classList.add('error');
-                    errors++;
-                    contador.innerText = (7-errors);
-                    error.innerText = errors;
-                    reiniciarCooldown();
-                }
-                
+    if(score === 0){
+        contenidor.addEventListener('click', function game(e){
+            if(jump === 0){
+                start()
+                startCooldown();
+                jump++;  
             }
-        }
-        if(paraulaAmagada === paraula){
-            /* endGame("You win" , errors);
-            stopCooldown();     */
-            let lletres = document.querySelectorAll(".lletra");
-            console.log(lletres);
-            lletres.forEach(e => {
-                e.classList.remove("correct");
-                e.classList.remove("error");
-            });
-            
-            score = score + paraula*100;
-            startGame(theme);
-
-        }else if(errors === 7){
-            endGame('Thanks for playing.');
-            stopCooldown();
-        }
-    });
+            if (e.target.classList.contains('lletra')) {
+                if(paraulaAmagada != paraula && errors != 7) {              
+                    if(adivinarLletra(e.target.innerText)>0){
+                        e.target.classList.add('correct');
+                        reiniciarCooldown();
+                    }
+                    else{
+                        e.target.classList.add('error');
+                        errors++;
+                        contador.innerText = (7-errors);
+                        error.innerText = errors;
+                        reiniciarCooldown();
+                    }
+                    
+                }
+            }
+            if(paraulaAmagada === paraula){
+                /* endGame("You win" , errors);
+                stopCooldown();     */
+                let lletres = document.querySelectorAll(".lletra");
+                console.log(lletres);
+                lletres.forEach(e => {
+                    e.classList.remove("correct");
+                    e.classList.remove("error");
+                });
+                
+                score = score + paraula.length*100;
+                startGame(theme);
     
+            }else if(errors === 7){
+                endGame('Thanks for playing.');
+                stopCooldown();
+            }
+        });
+    } 
 }
+
+
 
 const obtenerTODOS = (allblack,source)=>{
 
