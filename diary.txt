@@ -37,3 +37,10 @@ Updating Hangman game for the second page.
 
 
 ////////////////////////////////
+Day 8:
+Hangman sucesfully ported.
+
+TODO: Findout how to create an image puzzle.
+Implement clue system in Hangman.
+
+////////////////////////////////

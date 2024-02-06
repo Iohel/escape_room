@@ -20,6 +20,7 @@ let theme;
 let jump = 0;
 errors = 0;
 contador.innerText = '7';
+
     
 //Cronometro
 let elCrono;
@@ -40,7 +41,7 @@ function prepararParaula(e) {
         paraula = arrayTheme[random.toFixed()].word.toUpperCase(); 
         /* console.log(paraula); */
         
-        let space = " ";
+        
         showParaula.innerText = "";
         for (let i = 0; i < paraula.length; i++) {
             console.log(paraula.charAt(i));
@@ -69,7 +70,7 @@ function cooldown() {
     if(segundos<0){
         errors++;
         contador.innerText = (7-errors);
-        error.innerText = errors;
+       
         reiniciarCooldown();
     }
     if(errors === 7){
@@ -158,7 +159,7 @@ function adivinarLletra(e) {
 function endGame(final){
     stop();
     
-    score = score-errors*100;
+    score = score;
     
     document.getElementById('status').innerText = final;
     document.getElementById('palabra').innerText = "Final score: " + score;
@@ -174,16 +175,16 @@ function endGame(final){
     
     if(record != null){
         
-        record.push(["item.username",score]);
+        record.push([item.username,score]);
         localStorage.setItem("Hangman",JSON.stringify(record));
     }else{
-        finalScore = [["item.username",score]];
+        finalScore = [[item.username,score]];
         localStorage.setItem("Hangman",JSON.stringify(finalScore));
     }
     
 }
 function startGame(e){
-    
+    contador.innerText = (7-errors);
     prepararParaula(e);
     if(score === 0){
         contenidor.addEventListener('click', function game(e){
@@ -196,13 +197,14 @@ function startGame(e){
                 if(paraulaAmagada != paraula && errors != 7) {              
                     if(adivinarLletra(e.target.innerText)>0){
                         e.target.classList.add('correct');
+                        
                         reiniciarCooldown();
                     }
                     else{
                         e.target.classList.add('error');
                         errors++;
                         contador.innerText = (7-errors);
-                        error.innerText = errors;
+                        
                         reiniciarCooldown();
                     }
                     
@@ -217,8 +219,9 @@ function startGame(e){
                     e.classList.remove("correct");
                     e.classList.remove("error");
                 });
-                
-                score = score + paraula.length*100;
+                errors = errors-paraula.length;
+                contador.innerText = (7-errors);
+                score = score+paraula.length*100;
                 startGame(theme);
     
             }else if(errors === 7){
@@ -302,7 +305,7 @@ function getThemeData(key) {
                 
                 gestionarRespuesta(error,data);
                 
-            },"./themes/city_names.json");
+            },"../js/city_names.json");
             
             break;
         case "Pokemon Names":
@@ -323,6 +326,7 @@ function getThemeData(key) {
     
 }
 if(document.title == "Ahorcado"){
+    
     theme = "City Names";
     console.log(theme);
     startGame(theme);

@@ -18,6 +18,7 @@ function register(){
             if(comprovaContrasenyesIguales(password1,password2)){
                 localStorage.setItem(email.value,JSON.stringify({username:username.value,password:password1.value,login:0}));
                 console.log("register");
+                href.location="./user_login.js";
             }else{
                 email.value = "";
                 username.value = "";
