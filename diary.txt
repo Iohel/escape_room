@@ -1,4 +1,4 @@
-////////////////////////////////
+
 Day 1:
 //Brainstorm
 Import the memory game with a twist.
@@ -7,40 +7,36 @@ The Game of Nim(easiest version to implement).
 Number Code puzzle?
 Hangman new Thematic.
 https://en.wikipedia.org/wiki/Nim
-////////////////////////////////
 
-////////////////////////////////
+
 Day 2:
 Basic visual elements and navigation implemented.
-////////////////////////////////
 
-////////////////////////////////
+
 Day 3:
 Login and register js being done i guess still need to clear it up.
-////////////////////////////////
 
-////////////////////////////////
+
 Day 4:
 Menu sistems done with kickback to login page
-
 TODO: finish profile system.
-////////////////////////////////
-////////////////////////////////
+
+
 Day 5:
 Profile Done.
 
 
-////////////////////////////////
-////////////////////////////////
 Day 6:
 Updating Hangman game for the second page.
 
 
-////////////////////////////////
 Day 8:
 Hangman sucesfully ported.
 
 TODO: Findout how to create an image puzzle.
-Implement clue system in Hangman.
+Implement clue system in Hangman maybe?.
 
-////////////////////////////////
+
+Day 10:
+
+

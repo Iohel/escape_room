@@ -16,9 +16,9 @@ function register(){
     }else{
         if (esEmailValid(email)) {
             if(comprovaContrasenyesIguales(password1,password2)){
-                localStorage.setItem(email.value,JSON.stringify({username:username.value,password:password1.value,login:0}));
+                localStorage.setItem(email.value,JSON.stringify({username:username.value,password:password1.value,login:1}));
                 console.log("register");
-                href.location="./user_login.js";
+                location.href="./menu.html";
             }else{
                 email.value = "";
                 username.value = "";
