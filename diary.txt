@@ -39,4 +39,5 @@ Implement clue system in Hangman maybe?.
 
 Day 10:
 
+Memory sucesfully ported figure out the second screen.
 
