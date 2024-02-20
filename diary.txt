@@ -41,3 +41,9 @@ Day 10:
 
 Memory sucesfully ported figure out the second screen.
 
+Day 11: 
+
+sucesfully getting final code,
+
+Work on the solve code screen.
+

@@ -1,0 +1,89 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: xx-large;
+}
+
+div{
+    color: white;
+    border: 1px solid black;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    
+}
+@keyframes color {
+    0%{color: white};
+    100%{color:black};
+}
+@keyframes cleared {
+    0%{color: black; background-color: white;};
+    100%{color:white; background-color: black;};
+}
+div.revealed{
+    transition: transform 0.5s;
+    transform: rotateY(0deg);
+    color: black;
+    animation-name: color;
+    animation-duration: 1s;
+    
+}
+div.cleared{
+    
+    transform: rotateY(0deg);
+    animation-name: cleared;
+    animation-duration: 2s;
+    
+}
+
+.blue{
+    background-color: blue;
+    /*3*/
+}
+.red{
+    background-color: red;
+    /*1*/
+}
+.purple{
+    background-color: purple;
+    /*3*/
+}
+.green{
+    background-color: green;
+    /*2*/
+}
+.orange{
+    background-color: orange;
+    color: black;
+    /*1*/
+}
+.yellow{
+    background-color: yellow;
+    color: black;
+    /*2*/
+}
+.silver{
+    background-color: silver;
+    color: black;
+    /*3*/
+}
+.pink{
+    background-color: pink;
+    color: black;
+    /*1*/
+}
+.brown{
+    background-color: brown;
+    /*1*/
+}
+.aqua{
+    background-color: aqua;
+    color: black;
+    /*6*/
+}
