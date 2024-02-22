@@ -1,7 +1,7 @@
 
 function memoryGame() {
     let colors = ["blue","red","purple","green","orange","yellow","silver","pink","brown","aqua"];
-    
+    let finalColor;
     let pairs = 21;
     let array = [];
     for (let i = 1; i <= pairs; i++) {
@@ -13,8 +13,7 @@ function memoryGame() {
     array.sort(()=>{return 0.5 - Math.random();})
     let id = 0;
 
-    let main = document.createElement("main")
-    document.querySelector("body").append(main);
+    
 
     array.forEach(element => {
         let div = document.createElement("div",{"id":id, "class":"hidden"});
@@ -71,9 +70,13 @@ function memoryGame() {
                             }else{
                                 code = [...code[0]];
                             }
+                            document.querySelector(".contenidor").style.display = 'none';
+                            document.querySelector(".envoltorio-popup").style.display = 'block';
 
                             for (let i = 0; i < 4; i++) {
                                 console.log(code[i]);
+                                let inputs = document.querySelectorAll(".input");
+                                inputs[i].id = code[i];
                             }
                             
                             
@@ -99,6 +102,28 @@ function memoryGame() {
             }
         })
     });
+    document.querySelectorAll(".input").forEach(element => {
+        
+        element.addEventListener("change",function(){
+            console.log(this.value);
+        });
+    });
+    document.querySelector("button").addEventListener("click",function(){
+        let correct = true;
+        document.querySelectorAll(".input").forEach(element => {
+            if(element.id !== element.value){
+                correct = false;
+            }else{
+                console.log(":D");
+            }
+        });
+
+        if(correct){
+
+        }else{
+            
+        }
+    })
 }
 
 memoryGame();
