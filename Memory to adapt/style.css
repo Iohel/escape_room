@@ -43,47 +43,55 @@ div.cleared{
 }
 
 .blue{
-    background-color: blue;
+    
+    background-color: rgba(0, 0, 255, 0.2);
+    color: black;
     /*3*/
 }
 .red{
-    background-color: red;
-    /*1*/
+    
+    background-color: rgba(255, 0, 0, 0.2);
+    color: black;
 }
 .purple{
-    background-color: purple;
-    /*3*/
+    
+    background-color: rgba(128, 0, 128, 0.2);
+    color: black;
 }
 .green{
-    background-color: green;
-    /*2*/
+    background-color: rgba(0, 128, 0, 0.2);
+    color: black;
 }
 .orange{
-    background-color: orange;
+    background-color: rgba(255, 165, 0, 0.2);
     color: black;
     /*1*/
 }
 .yellow{
-    background-color: yellow;
+
+    background-color: rgba(255, 255, 0, 0.2);
     color: black;
     /*2*/
 }
 .silver{
-    background-color: silver;
+    
+    background-color: rgba(192, 192, 192, 0.2);
     color: black;
     /*3*/
 }
 .pink{
-    background-color: pink;
+
+    background-color: rgba(255, 192, 203, 0.2);
     color: black;
     /*1*/
 }
 .brown{
-    background-color: brown;
+    background-color: rgba(165, 42, 42, 0.2);
+    color: #000;
     /*1*/
 }
 .aqua{
-    background-color: aqua;
+    background-color: rgba(0, 255, 255, 0.2);
     color: black;
     /*6*/
 }
@@ -103,7 +111,7 @@ div.cleared{
     max-width: 300px;
     margin: 10% auto;
     padding: 20px;
-    background: wheat;
+    background: black;
     position: relative;
 }
 .popup a{
