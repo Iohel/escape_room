@@ -51,7 +51,7 @@ footer{
     opacity: 0.5;
 }
 
-.envoltorio-popup{
+.hangman-envoltorio-popup,.memory-envoltorio-popup{
     background: rgba(0,0,0,0.1);
     position: fixed;
     top: 0;

@@ -1,7 +1,11 @@
 
 function memoryGame() {
+    let seconds = 0;
     let colors = ["blue","red","purple","green","orange","yellow","silver","pink","brown","aqua"];
+    let score = 99999;
+    let clues = 0;
     let finalColor = [];
+    let crono = null;
     let pairs = 21;
     let array = [];
     for (let i = 1; i <= pairs; i++) {
@@ -16,8 +20,9 @@ function memoryGame() {
     
 
     array.forEach(element => {
-        let div = document.createElement("div",{"id":id, "class":"hidden"});
+        let div = document.createElement("div",{"id":id});
         div.append(element)
+        div.classList.add("hidden");
         document.querySelector("main").append(div);
         id++;
     });
@@ -27,7 +32,9 @@ function memoryGame() {
     let cleared = 0;
     document.querySelectorAll("div").forEach(element => {
         element.addEventListener("click",function(e){
-            
+            if(seconds === 0){
+                crono  = setInterval(counter,1000);
+            }
             if(value1 !== -1){
                 value2 = e.target.innerText;
                 if(value1 == value2){
@@ -107,13 +114,8 @@ function memoryGame() {
             }
         })
     });
-    document.querySelectorAll(".input").forEach(element => {
-        
-        element.addEventListener("change",function(){
-            /* console.log(this.value); */
-        });
-    });
-    document.querySelector("button").addEventListener("click",function(){
+    
+    document.querySelector(".solve").addEventListener("click",function(){
         let correct = true;
         document.querySelectorAll(".input").forEach(element => {
             if(element.id !== element.value){
@@ -124,9 +126,34 @@ function memoryGame() {
         });
 
         if(correct){
-            document.querySelector(".contenido-popup").innerHTML="test";
+            clearInterval(crono);
+            score = score-(seconds*100)-(clues*10000);
+            document.querySelector(".contenido-popup").innerHTML=
+            "<section>"+
+                "<h1>Final Score</h1>"+
+                "<h6>"+score+"</h6>"+
+                "<a href='./menu.html'>To the menu.</a>"
+            "</section>";
+            let record = localStorage.getItem("Memory");
+            record = JSON.parse(record);
+
+            if(record != null){
+                
+                record.push([item.username,score]);
+                localStorage.setItem("Memory",JSON.stringify(record));
+            }else{
+                finalScore = [[item.username,score]];
+                localStorage.setItem("Memory",JSON.stringify(finalScore));
+            }
         }
     })
+
+    //Local Storage Saving
+    
+
+    function counter(){
+        seconds += 1;
+    }
 }
 
 memoryGame();

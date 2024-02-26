@@ -22,11 +22,11 @@ function register(){
             }else{
                 email.value = "";
                 username.value = "";
-                password1.value = "";
-                password2.value = "";
+                password1.value = "Password must be the same";
+                password2.value = "Password must be the same";
             }
         }else{
-            email.value = "";
+            email.value = "Input a valid email.";
             username.value = "";
             password1.value = "";
             password2.value = "";

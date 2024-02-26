@@ -325,35 +325,7 @@ function getThemeData(key) {
     }
     
 }
-if(document.title == "Ahorcado"){
-    
-    theme = "City Names";
-    console.log(theme);
-    startGame(theme);
-    /* retry.addEventListener('click',(e)=>{
-        startGame(theme);
-    }); */
 
-}else{
-    let button = document.querySelectorAll("input[type = button]");
-    console.log("1");
-    button.forEach(element => {
-        element.addEventListener('click',()=>{
-            console.log(element.value);
-            theme = element.value;
-            localStorage.setItem("theme",element.value);
-            location.href = './ahorcado.html';
-        });
-    });
-}
-
-//To change-
-/*
-    Marathon Mode:
-    Keep prompting words until mistakes total 7
-    keeps a score based on length of words
-
-*/
 
 
 

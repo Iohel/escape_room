@@ -1,4 +1,5 @@
 main{
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,8 +8,9 @@ main{
 }
 
 div{
-    color: white;
-    border: 1px solid black;
+    color: rgba(0, 0, 0, 0);
+    border: 1px solid white;
+    background-color: white;
     margin: 10px;
     width: 50px;
     height: 50px;
@@ -16,6 +18,10 @@ div{
     align-items: center;
     justify-content: center;
     transform: rotateY(180deg);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
     
 }
 @keyframes color {
@@ -32,67 +38,68 @@ div.revealed{
     color: black;
     animation-name: color;
     animation-duration: 1s;
-    
+    pointer-events: none;
 }
 div.cleared{
     
     transform: rotateY(0deg);
     animation-name: cleared;
     animation-duration: 2s;
+    pointer-events: none;
     
 }
 
 .blue{
     
     background-color: rgba(0, 0, 255, 0.2);
-    color: black;
+    color: white
     /*3*/
 }
 .red{
     
     background-color: rgba(255, 0, 0, 0.2);
-    color: black;
+    color: white
 }
 .purple{
     
     background-color: rgba(128, 0, 128, 0.2);
-    color: black;
+    color: white
 }
 .green{
     background-color: rgba(0, 128, 0, 0.2);
-    color: black;
+    color: white
 }
 .orange{
     background-color: rgba(255, 165, 0, 0.2);
-    color: black;
+    color: white
     /*1*/
 }
 .yellow{
 
     background-color: rgba(255, 255, 0, 0.2);
-    color: black;
+    color: white
     /*2*/
 }
 .silver{
     
     background-color: rgba(192, 192, 192, 0.2);
-    color: black;
+    color: white
     /*3*/
 }
 .pink{
 
     background-color: rgba(255, 192, 203, 0.2);
-    color: black;
+    color: white
     /*1*/
 }
 .brown{
     background-color: rgba(165, 42, 42, 0.2);
-    color: #000;
+    color: white
     /*1*/
 }
 .aqua{
     background-color: rgba(0, 255, 255, 0.2);
-    color: black;
+    color: white
     /*6*/
 }
 .envoltorio-popup{
@@ -128,10 +135,17 @@ div.cleared{
 }
 .contenido-popup{
     display: flex;
-  
+    color: white;
     justify-content: space-around;
 }
+
 input{
     width: 3em;
     text-decoration: none;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    color: black;
 }
