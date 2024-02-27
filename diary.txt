@@ -50,3 +50,8 @@ Work on the solve code screen.
 Day 12:
 
 Finish memory local storage insertion.
+
+Day 13:
+
+Memory finished.
+Do general css.

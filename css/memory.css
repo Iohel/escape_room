@@ -118,14 +118,14 @@ div.cleared{
     max-width: 300px;
     margin: 10% auto;
     padding: 20px;
-    background: black;
     position: relative;
 }
 .popup a{
     background:crimson;
     color: white;
     text-decoration: none;
-    padding: 6px 10px;
+    font-size: small;
+    padding: 6px 6px;
 }
 .cerrar-popup{
     position: absolute;
@@ -138,14 +138,23 @@ div.cleared{
     color: white;
     justify-content: space-around;
 }
-
+.clue_output{
+    text-align: center;
+    color: white;
+}
+article{
+    display: flex;
+    justify-content: space-around;
+}
 input{
-    width: 3em;
-    text-decoration: none;
+    width: 35px;
+    font-size: xx-large;    
+    
 }
 section{
     display: flex;
     flex-direction: column;
     font-size: larger;
-    color: black;
+    color: white;
+    
 }

@@ -6,7 +6,7 @@ function memoryGame() {
     let clues = 0;
     let finalColor = [];
     let crono = null;
-    let pairs = 21;
+    let pairs = 25;
     let array = [];
     for (let i = 1; i <= pairs; i++) {
             
@@ -148,7 +148,28 @@ function memoryGame() {
         }
     })
 
-    //Local Storage Saving
+    document.querySelector(".clue").addEventListener("click",function (){
+        let output = document.querySelector(".clue_output");
+        clues++
+        console.log(clues);
+        switch (clues) {
+            case 1:
+                output.innerHTML = output.innerHTML + "<p>Think of the colors.</p>";
+                break;
+        
+            case 2:
+                output.innerHTML = output.innerHTML + "<p>The order matters.</p>";
+                break;
+
+            case 3:
+                output.innerHTML = output.innerHTML + "<p>The first 4 numbers.</p>";                
+                break;
+        
+            default:
+                clues = 3;
+                break;
+        }
+    })
     
 
     function counter(){

@@ -31,9 +31,9 @@ cerrar[1].addEventListener('click', () => {
 
 function recordPopup(game) {
     let records = JSON.parse(localStorage.getItem(game));
-    let table = document.querySelector("tbody");
-    let i = 1;
     
+    let table = document.querySelector("."+game);
+    let i = 1;
     records = records.sort((a,b)=>(b[1]-a[1]));
     table.innerHTML = 
     "<tbody>"+
