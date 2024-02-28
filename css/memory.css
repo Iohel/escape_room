@@ -18,9 +18,9 @@ div{
     align-items: center;
     justify-content: center;
     transform: rotateY(180deg);
-    -webkit-user-select: none;
-    -ms-user-select: none;
+    
     user-select: none;
+    
     cursor: pointer;
     
 }
