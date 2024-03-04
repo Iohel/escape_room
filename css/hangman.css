@@ -1,18 +1,27 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 *{
     box-sizing: border-box;
+    
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body{
-    background-color: #243333;
-    display: flex;
+    background-image: url(../img/login_background.jpg);
+    background-size: cover ;
+    background-repeat: no-repeat;display: flex;
     flex-direction: column;
     color: white;
     align-items: center;
     height: 100vh;
-    font-family: 'Lato' sans-serif;
+    
     margin: 0;
     font-size: 30px;
+    user-select: none;
+}
+.text{
+    font-size: 20px;
 }
 div#time2{
     margin-bottom: 20px;
@@ -64,19 +73,8 @@ div#time2{
     font-size: 100px;
 }
 
-p.text span{
-    color: #6feaf6;
-}
 
-button{
-    display: block;
-    margin: 20px auto;
-    background: crimson;
-    color: wheat;
-    border: 0;
-    padding: 6px 10px;
 
-}
 
 .envoltorio-popup{
     background: rgba(0,0,0,0.1);

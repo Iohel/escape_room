@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 *{
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
 }
 body{
-    background-image: url(../img/login\ background.jpg);;
-    background-size: 100%;
+    background-image: url(../img/login_background.jpg);
+    background-size: cover ;
+    background-repeat: no-repeat;
     
 }
 main{
@@ -27,6 +32,7 @@ button{
     width: 200px;
     height: 200px;
     margin: 50px;
+    user-select: none;
 }
 .container h3,span{
     padding-bottom: 15px;
@@ -34,6 +40,7 @@ button{
 header{
     display: flex;
     justify-content: space-around;
+    width: 100%;
     align-items: center;
     padding: 10px;
     background-color: gray;
@@ -61,6 +68,7 @@ footer{
     display: none;
 }
 .popup{
+    background-color: rgba(255,255,255,1);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     width: 100%;
@@ -68,17 +76,17 @@ footer{
     margin: 10% auto;
     padding: 20px;
     position: relative;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
-.popup a{
-    background:crimson;
-    color: white;
-    text-decoration: none;
-    padding: 6px 10px;
-}
+
 .cerrar-popup{
     position: absolute;
-    top: 5px;
-    right: 8px;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
 
 }
 .contenido-popup{

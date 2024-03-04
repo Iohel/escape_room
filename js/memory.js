@@ -44,7 +44,7 @@ function memoryGame() {
                         
                         e.target.className = "revealed";
                         let random = Math.ceil((Math.random())*colors.length);
-                        console.log(random-1);
+                        
                         let color = colors[random-1];
                        
                         setTimeout(()=>{
@@ -77,7 +77,7 @@ function memoryGame() {
     
                                 });
                                 let t = Math.floor(Math.random())*code.length;
-                                console.log(code);
+                                
                                 if(code.length != 1){
                                     code = [...code[t]];
                                     finalColor = colors[t];
@@ -90,7 +90,7 @@ function memoryGame() {
                                 document.querySelector(".popup").classList.add(finalColor);
     
                                 for (let i = 0; i < 4; i++) {
-                                    console.log(code[i]);
+                                    
                                     let inputs = document.querySelectorAll(".input");
                                     inputs[i].id = code[i];
                                 }
@@ -134,8 +134,6 @@ document.querySelector(".solve").addEventListener("click",function(){
     document.querySelectorAll(".input").forEach(element => {
         if(element.id !== element.value){
             correct = false;
-        }else{
-            console.log(":D");
         }
     });
 

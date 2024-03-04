@@ -7,18 +7,18 @@ function prepararParaula(e) {
                 
         random = Math.random()*(arrayTheme.length-1);
         paraula = arrayTheme[random.toFixed()].word.toUpperCase(); 
-            /* console.log(paraula); */
+            
                 
                 
         showParaula.innerText = "";
         for (let i = 0; i < paraula.length; i++) {
-            console.log(paraula.charAt(i));
+            
                     
             showParaula.innerText += '-' ;   
                     
         }
         paraulaAmagada = showParaula.innerText;
-        console.log(paraulaAmagada);
+        
     },500);
 }
 function endGame(){
@@ -65,28 +65,7 @@ function startGame(e){
 function getThemeData(key) {
     
     switch (key) {
-        case "English Words":
-                
-            obtenerTODOS((error,data)=>{
-            
-                console.log("tutorial");
-                        
-                gestionarRespuesta(error,data);
-                        
-            },"./themes/english_words.json");
-                    
-            break;
-        case "Spanish Words":
-                    
-            obtenerTODOS((error,data)=>{
-            
-                console.log("tutorial");
-                        
-                gestionarRespuesta(error,data);
-                        
-            },"./themes/spanish_words.json");
-                    
-            break;
+        
         case "City Names":
                     
             obtenerTODOS((error,data)=>{
@@ -98,20 +77,7 @@ function getThemeData(key) {
             },"../js/city_names.json");
                     
             break;
-        case "Pokemon Names":
-                    
-            obtenerTODOS((error,data)=>{
-            
-                console.log("tutorial");
-                        
-                gestionarRespuesta(error,data);
-                        
-            },"./themes/pokemon_names.json");
-                    
-            break;
-            
-        default:
-            break;
+        
     }
             
 }
@@ -122,13 +88,10 @@ const obtenerTODOS = (allblack,source)=>{
     request.addEventListener('readystatechange',()=>{
         
         if(request.readyState === 4 && request.status === 200){
-            //console.log(request);
-            //console.log(request.responseText);
             const respuesta = JSON.parse(request.responseText);
             allblack(undefined, respuesta);
             
         }else if (request.readyState === 4) {
-            //console.log("No se ha podido obtener los datos.");
             allblack("No se ha podido obtener los datos.",undefined);
         }
     });
@@ -163,7 +126,7 @@ function adivinarLletra(e) {
             counter++;
         }
     }
-            //once finished we update paraula amagada with the new string and update it to the player.    
+    //once finished we update paraula amagada with the new string and update it to the player.    
     paraulaAmagada = charArray.join("");
     showParaula.innerText = paraulaAmagada;
     return counter;
